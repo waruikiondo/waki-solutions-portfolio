@@ -1,26 +1,37 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* The "IzzieDevs" Palette */
+  --color-background-dark: #050505; /* True Black */
+  --color-surface-dark: #0F0F0F;    /* Slightly lighter for cards */
+  --color-surface-hover: #1A1A1A;   /* For hover states */
+  --color-primary-text: #FFFFFF;    /* Pure White for headings */
+  --color-secondary-text: #A1A1AA;  /* Muted Grey for body */
+  --color-accent-blue: #3B82F6;     /* The "Trust" Blue */
+  --color-accent-glow: #60A5FA;     /* Lighter blue for glows */
+
+  /* Modern Font Stack */
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-outfit), system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-background-dark text-primary-text font-sans antialiased selection:bg-accent-blue selection:text-white;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Utilities for that "Glossy" feel */
+@layer components {
+  .glass-panel {
+    @apply bg-surface-dark/60 backdrop-blur-xl border border-white/5;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:border-accent-blue/50 hover:bg-surface-hover hover:shadow-2xl hover:shadow-accent-blue/10;
+  }
 }
