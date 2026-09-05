@@ -28,7 +28,7 @@ export const projects: Project[] = [
     body: [
       "A rebuild with a launch date attached. First commit on 9 June; Stripe subscriptions were taking real payments on 20 June. Eleven days from empty repository to revenue.",
       "What went in during that window: tiered memberships billed as Stripe subscriptions, a member dashboard on Supabase, transactional confirmations through Resend, Calendly and Zoom for consultation booking, and a clinical article library rendered from markdown with proper table support. British English throughout — the brand is UK, and American spellings were the first thing the client caught.",
-      "The bug that cost a day was environment variables. The Supabase client worked locally and failed in production with credentials that looked byte-identical in both places. They weren't: the values carried trailing whitespace, and Vercel's build cache was serving stale copies on top of that. Now I validate and trim env values at startup rather than trusting that what I pasted is what arrives.",
+      "The bug that cost a day was environment variables. The Supabase client worked locally and failed in production with credentials that looked byte-identical in both places. They weren't: the values carried trailing whitespace, and Vercel's build cache was serving stale copies on top of that. It's the kind of bug where everything looks correct in both places and only the behaviour disagrees.",
     ],
     specs: [
       { key: "PERIOD", value: "June 2026 — present" },
@@ -148,8 +148,9 @@ export const archive: ArchiveRow[] = [
 ];
 
 export const octocopterPlates = [
-  { src: "/octocopter/assembly-01.png", alt: "Acrylic hub and machined aluminium arms during assembly", caption: "AIRFRAME ASSEMBLY" },
+  { src: "/octocopter/assembly-01.jpg", alt: "Acrylic hub and machined aluminium arms during assembly", caption: "AIRFRAME ASSEMBLY" },
   { src: "/octocopter/flight-controller-pcb-layout.png", alt: "KiCad layout of the flight controller board", caption: "FLIGHT CONTROLLER, KICAD" },
   { src: "/octocopter/simulink-6dof-model.png", alt: "Simulink six-degree-of-freedom model", caption: "6-DOF MODEL, SIMULINK" },
-  { src: "/octocopter/z-position-tracking.png", alt: "Altitude tracking response from simulation", caption: "ALTITUDE TRACKING" },
+  { src: "/octocopter/telemetry-ground-station.png", alt: "C# ground station showing live telemetry", caption: "GROUND STATION, C#" },
 ];
+

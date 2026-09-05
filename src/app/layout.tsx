@@ -17,7 +17,7 @@ const mono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
-export const SITE_URL = "https://kelvinwarui.com"; // <- your real domain
+export const SITE_URL = "https://kelvinwarui.vercel.app"; // <- your real domain
 const NAME = "Kelvin Warui Kiondo";
 const ROLE = "Full-stack developer & mechatronics engineer";
 
