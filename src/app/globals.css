@@ -205,5 +205,29 @@ img { max-width: 100%; display: block; }
   .sheet-head { gap: 12px; }
   .titleblock { grid-template-columns: 1fr; }
   .tb-cell { border-right: 0; }
-  .archive .st { display: none; }
-}
+  /* Reflow the archive into stacked records — a five-column table cannot
+     survive a 360px viewport, and hiding columns loses real information. */
+  .archive thead {
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .archive, .archive tbody, .archive tr, .archive td { display: block; width: 100%; }
+  .archive tr {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .archive tr:hover td { background: none; }
+  .archive td { padding: 0; border-bottom: 0; }
+  .archive .yr { display: block; margin-bottom: 5px; }
+  .archive .nm { font-size: 1.05rem; margin-bottom: 6px; }
+  .archive .st { display: block; }
+  .archive td:nth-child(4) {
+    font-family: var(--font-mono), monospace;
+    font-size: .74rem;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+  .archive td:last-child { margin-top: 10px; }}
