@@ -19,7 +19,7 @@ const mono = JetBrains_Mono({
 
 export const SITE_URL = "https://kelvinwarui.vercel.app"; // <- your real domain
 const NAME = "Kelvin Warui Kiondo";
-const ROLE = "Full-stack developer & mechatronics engineer";
+const ROLE = "Full-stack developer and mechatronics engineer";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
